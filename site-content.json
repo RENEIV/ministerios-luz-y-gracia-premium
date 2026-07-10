@@ -1,0 +1,175 @@
+{
+  "site": {
+    "name": "Ministerios Luz y Gracia",
+    "shortName": "Luz y Gracia",
+    "tagline": "Una iglesia para conocer a Cristo, crecer en comunidad y servir con propósito.",
+    "taglineEn": "A church to know Christ, grow in community, and serve with purpose.",
+    "phone": "(714) 555-0100",
+    "email": "contacto@luzygracia.org",
+    "address": "Garden Grove, California",
+    "facebook": "#",
+    "instagram": "#",
+    "youtube": "#",
+    "tiktok": "#"
+  },
+  "hero": {
+    "eyebrow": "Bienvenidos",
+    "title": "Fe que ilumina. Gracia que transforma.",
+    "subtitle": "Somos una comunidad bautista que proclama el evangelio, forma discípulos y sirve a las familias de nuestra ciudad.",
+    "primaryCta": "Planifica tu visita",
+    "secondaryCta": "Conoce nuestros ministerios",
+    "image": "assets/images/hero-church.jpg"
+  },
+  "heroEn": {
+    "eyebrow": "Welcome",
+    "title": "Faith that shines. Grace that transforms.",
+    "subtitle": "We are a Baptist community proclaiming the gospel, forming disciples, and serving families in our city.",
+    "primaryCta": "Plan your visit",
+    "secondaryCta": "Explore ministries",
+    "image": "../assets/images/hero-church.jpg"
+  },
+  "serviceTimes": [
+    {
+      "day": "Domingo",
+      "time": "11:00 a. m.",
+      "label": "Celebración y predicación"
+    },
+    {
+      "day": "Miércoles",
+      "time": "7:00 p. m.",
+      "label": "Estudio bíblico y oración"
+    },
+    {
+      "day": "Lunes",
+      "time": "7:00 p. m.",
+      "label": "Grupos pequeños"
+    }
+  ],
+  "serviceTimesEn": [
+    {
+      "day": "Sunday",
+      "time": "11:00 a.m.",
+      "label": "Worship and preaching"
+    },
+    {
+      "day": "Wednesday",
+      "time": "7:00 p.m.",
+      "label": "Bible study and prayer"
+    },
+    {
+      "day": "Monday",
+      "time": "7:00 p.m.",
+      "label": "Small groups"
+    }
+  ],
+  "announcements": [
+    {
+      "date": "Próximamente",
+      "title": "Nuevo grupo pequeño",
+      "description": "Un espacio para crecer en la Palabra, fortalecer relaciones y servir juntos.",
+      "linkText": "Solicitar información",
+      "link": "#contacto"
+    },
+    {
+      "date": "Cada domingo",
+      "title": "Culto familiar",
+      "description": "Adoración, enseñanza bíblica y un ambiente seguro para toda la familia.",
+      "linkText": "Planificar visita",
+      "link": "#visitanos"
+    },
+    {
+      "date": "Ministerio activo",
+      "title": "Peticiones de oración",
+      "description": "Nuestro equipo pastoral desea orar contigo de manera confidencial.",
+      "linkText": "Enviar petición",
+      "link": "#oracion"
+    }
+  ],
+  "announcementsEn": [
+    {
+      "date": "Coming soon",
+      "title": "New small group",
+      "description": "A place to grow in Scripture, build relationships, and serve together.",
+      "linkText": "Request information",
+      "link": "#contact"
+    },
+    {
+      "date": "Every Sunday",
+      "title": "Family worship service",
+      "description": "Worship, biblical teaching, and a safe environment for the whole family.",
+      "linkText": "Plan a visit",
+      "link": "#visit"
+    },
+    {
+      "date": "Active ministry",
+      "title": "Prayer requests",
+      "description": "Our pastoral team would be honored to pray with you confidentially.",
+      "linkText": "Send request",
+      "link": "#prayer"
+    }
+  ],
+  "ministries": [
+    {
+      "icon": "✦",
+      "title": "Familias",
+      "description": "Acompañamiento bíblico para matrimonios, padres e hijos."
+    },
+    {
+      "icon": "✦",
+      "title": "Niños",
+      "description": "Formación segura, creativa y centrada en el evangelio."
+    },
+    {
+      "icon": "✦",
+      "title": "Jóvenes",
+      "description": "Discipulado, comunidad y propósito para nuevas generaciones."
+    },
+    {
+      "icon": "✦",
+      "title": "Misiones",
+      "description": "Plantación de iglesias, evangelismo y servicio local y global."
+    },
+    {
+      "icon": "✦",
+      "title": "Grupos pequeños",
+      "description": "Relaciones auténticas alrededor de la Palabra y la oración."
+    },
+    {
+      "icon": "✦",
+      "title": "Formación bíblica",
+      "description": "Clases y recursos para crecer en doctrina y práctica cristiana."
+    }
+  ],
+  "ministriesEn": [
+    {
+      "icon": "✦",
+      "title": "Families",
+      "description": "Biblical care for marriages, parents, and children."
+    },
+    {
+      "icon": "✦",
+      "title": "Children",
+      "description": "Safe, creative, gospel-centered formation."
+    },
+    {
+      "icon": "✦",
+      "title": "Youth",
+      "description": "Discipleship, community, and purpose for new generations."
+    },
+    {
+      "icon": "✦",
+      "title": "Missions",
+      "description": "Church planting, evangelism, and local and global service."
+    },
+    {
+      "icon": "✦",
+      "title": "Small groups",
+      "description": "Authentic relationships around Scripture and prayer."
+    },
+    {
+      "icon": "✦",
+      "title": "Biblical formation",
+      "description": "Classes and resources for growth in doctrine and Christian practice."
+    }
+  ]
+}
