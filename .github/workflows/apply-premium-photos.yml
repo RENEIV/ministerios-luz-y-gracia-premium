@@ -1,0 +1,77 @@
+name: Integrar fotografías eclesiásticas premium
+
+on:
+  push:
+    branches:
+      - agent/arquitectura-eclesiastica-premium
+    paths:
+      - assets/images/hero-worship.webp
+      - assets/images/community-prayer.webp
+      - .github/workflows/apply-premium-photos.yml
+
+permissions:
+  contents: write
+
+jobs:
+  integrar-fotografias:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Descargar rama
+        uses: actions/checkout@v4
+        with:
+          ref: agent/arquitectura-eclesiastica-premium
+          fetch-depth: 0
+
+      - name: Integrar fotografías en la portada
+        shell: python
+        run: |
+          from pathlib import Path
+
+          path = Path("index.html")
+          html = path.read_text(encoding="utf-8")
+
+          old_hero = '''      background:
+        linear-gradient(115deg, rgba(7, 26, 42, .98), rgba(13, 42, 66, .84)),
+        radial-gradient(circle at 80% 20%, rgba(201, 162, 77, .22), transparent 34%);'''
+
+          new_hero = '''      background:
+        linear-gradient(115deg, rgba(7, 26, 42, .96), rgba(13, 42, 66, .67)),
+        radial-gradient(circle at 80% 20%, rgba(201, 162, 77, .20), transparent 34%),
+        url("/assets/images/hero-worship.webp") center 42% / cover no-repeat;'''
+
+          old_panel = '''      background:
+        linear-gradient(145deg, rgba(13, 42, 66, .45), rgba(201, 162, 77, .12)),
+        linear-gradient(135deg, #d8e0e8, #aab8c6);'''
+
+          new_panel = '''      background:
+        linear-gradient(145deg, rgba(7, 26, 42, .18), rgba(201, 162, 77, .10)),
+        url("/assets/images/community-prayer.webp") center 38% / cover no-repeat;'''
+
+          old_caption = '''            <span>Espacio para fotografía oficial</span>
+            <small>Más adelante puede sustituirse por una fotografía de la iglesia, la comunidad o el ministerio.</small>'''
+
+          new_caption = '''            <span>Una comunidad que ora y camina unida</span>
+            <small>Familias, discípulos y líderes creciendo en la Palabra y sirviendo con gracia.</small>'''
+
+          replacements = [
+              (old_hero, new_hero, "fondo principal"),
+              (old_panel, new_panel, "panel de comunidad"),
+              (old_caption, new_caption, "texto de fotografía"),
+          ]
+
+          for old, new, label in replacements:
+              if old not in html:
+                  raise SystemExit(f"No se encontró el bloque esperado: {label}")
+              html = html.replace(old, new, 1)
+
+          path.write_text(html, encoding="utf-8")
+
+      - name: Guardar actualización visual
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git commit -m "Integrar fotografías eclesiásticas en portada" || exit 0
+          git push origin HEAD:agent/arquitectura-eclesiastica-premium
