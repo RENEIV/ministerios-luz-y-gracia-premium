@@ -1,6 +1,23 @@
 import { readFile, writeFile } from "node:fs/promises";
 
 const pagePath = new URL("../index.html", import.meta.url);
+const communityImagePath = new URL("../assets/images/community-prayer.webp", import.meta.url);
+const communityImageParts = [
+  new URL("../assets/data/community-prayer/part-01.txt", import.meta.url),
+  new URL("../assets/data/community-prayer/part-02.txt", import.meta.url),
+  new URL("../assets/data/community-prayer/part-03.txt", import.meta.url),
+  new URL("../assets/data/community-prayer/part-04.txt", import.meta.url)
+];
+
+const communityImageBase64 = (
+  await Promise.all(communityImageParts.map((part) => readFile(part, "utf8")))
+).join("").replace(/\s+/g, "");
+
+await writeFile(
+  communityImagePath,
+  Buffer.from(communityImageBase64, "base64")
+);
+
 let html = await readFile(pagePath, "utf8");
 
 const emblem = `<span class="brand-emblem" aria-hidden="true">
@@ -25,12 +42,12 @@ const replacements = [
   {
     name: "fotografía de comunidad",
     before: `      background:\n        linear-gradient(145deg, rgba(13, 42, 66, .45), rgba(201, 162, 77, .12)),\n        linear-gradient(135deg, #d8e0e8, #aab8c6);`,
-    after: `      background:\n        linear-gradient(145deg, rgba(7, 26, 42, .18), rgba(201, 162, 77, .10)),\n        url("/assets/images/community-prayer.webp") center 38% / cover no-repeat;`
+    after: `      background:\n        linear-gradient(145deg, rgba(7, 26, 42, .12), rgba(201, 162, 77, .08)),\n        url("/assets/images/community-prayer.webp") center 55% / cover no-repeat;`
   },
   {
     name: "descripción accesible de comunidad",
     before: `<div class="image-panel reveal" role="img" aria-label="Espacio para fotografía oficial">\n          <div class="image-panel-content">\n            <span>Espacio para fotografía oficial</span>\n            <small>Más adelante puede sustituirse por una fotografía de la iglesia, la comunidad o el ministerio.</small>\n          </div>\n        </div>`,
-    after: `<div class="image-panel reveal" role="img" aria-label="Familias y líderes de la comunidad orando juntos">\n          <div class="image-panel-content">\n            <span>Una comunidad que ora y camina unida</span>\n            <small>Familias, discípulos y líderes creciendo en la Palabra y sirviendo con gracia.</small>\n          </div>\n        </div>`
+    after: `<div class="image-panel reveal" role="img" aria-label="Familias, adultos y niños de la comunidad reunidos en oración">\n          <div class="image-panel-content">\n            <span>Una comunidad que ora y camina unida</span>\n            <small>Familias, niños, discípulos y líderes creciendo en la Palabra y sirviendo con gracia.</small>\n          </div>\n        </div>`
   }
 ];
 
@@ -86,4 +103,4 @@ if (!html.includes("href=\"/assets/images/hero-worship.webp\"")) {
 }
 
 await writeFile(pagePath, html, "utf8");
-console.log("Fotografías y emblema oficial vectorial de Luz y Gracia integrados correctamente.");
+console.log("Fotografías, familia con niños y emblema oficial de Luz y Gracia integrados correctamente.");
