@@ -1,7 +1,7 @@
 import { readFile, writeFile } from "node:fs/promises";
 
 const pagePath = new URL("../index.html", import.meta.url);
-const communityImagePath = new URL("../assets/images/community-prayer-family-v2.webp", import.meta.url);
+const communityImagePath = new URL("../assets/images/community-prayer-family-v3.webp", import.meta.url);
 const communityImageParts = [
   new URL("../assets/data/community-prayer/part-01.txt", import.meta.url),
   new URL("../assets/data/community-prayer/part-02.txt", import.meta.url),
@@ -42,7 +42,7 @@ const replacements = [
   {
     name: "fotografía de comunidad",
     before: `      background:\n        linear-gradient(145deg, rgba(13, 42, 66, .45), rgba(201, 162, 77, .12)),\n        linear-gradient(135deg, #d8e0e8, #aab8c6);`,
-    after: `      background:\n        linear-gradient(145deg, rgba(7, 26, 42, .12), rgba(201, 162, 77, .08)),\n        url("/assets/images/community-prayer-family-v2.webp") center 55% / cover no-repeat;`
+    after: `      background:\n        linear-gradient(145deg, rgba(7, 26, 42, .12), rgba(201, 162, 77, .08)),\n        url("/assets/images/community-prayer-family-v3.webp") center 55% / cover no-repeat;`
   },
   {
     name: "descripción accesible de comunidad",
@@ -103,4 +103,4 @@ if (!html.includes("href=\"/assets/images/hero-worship.webp\"")) {
 }
 
 await writeFile(pagePath, html, "utf8");
-console.log("Fotografía familiar con niños y emblema oficial de Luz y Gracia integrados correctamente.");
+console.log("Fotografía familiar v3 con niños y emblema oficial de Luz y Gracia integrados correctamente.");
